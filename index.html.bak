@@ -175,7 +175,7 @@
             }
           );
         },
-        'https://swatch--dev1.sandbox.my.salesforce-sites.com/webtocase' // Site endpoint
+        'https://swatch--dev1.sandbox.my.salesforce-sites.com' // Site endpoint
       );
     </script>
     <div class="services_section layout_padding">
