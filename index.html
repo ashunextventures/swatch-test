@@ -162,16 +162,19 @@
 
     <script src="https://swatch--dev1.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
     <script>
+	document.addEventListener("getFileUploadResponse", function(event){
+        console.log('vf event data window listener => ', event.detail);
+    });
       $Lightning.use(
-        'c:fileuploadcc',
+        'c:ExternalCaseApp',
         function () {
-          // Callback once framework and app loaded
+          
           $Lightning.createComponent(
-            'c:uploadtest', // top-level component of your app
-            {}, // attributes to set on the component when created
-            'lightningout', // the DOM location to insert the component
+            'c:externalCaseCreation', 
+            {"accountId":"0017Z00002G3nj0QAB"}, 
+            'lightningout', 
             function (cmp) {
-              // callback when component is created and active on the page
+              console.log('LWC Componenet added in external page');
             }
           );
         },
