@@ -165,6 +165,15 @@
 	document.addEventListener("getFileUploadResponse", function(event){
         console.log('vf event data window listener => ', event.detail);
     });
+	function clickSubmit(){
+		const comp = document.querySelector("external-case-creation");
+		comp.createCaseHandler();
+		
+	}
+	function clickDeleteImage(){
+		const comp = document.querySelector("external-case-creation");
+		comp.clearFile();
+	}
       $Lightning.use(
         'c:ExternalCaseApp',
         function () {
