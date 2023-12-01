@@ -1,0 +1,34 @@
+<div id="lightningout" style="border-bottom: 1px solid #ccc;padding-bottom: 45px;top: 31%;"></div>
+
+<script src="https://swatch--dev1.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
+<script>
+document.addEventListener("getFileUploadResponse", function(event){
+	console.log('vf event data window listener => ', event.detail);
+});
+function clickSubmit(){
+	const comp = document.querySelector("c-external-case-creation");
+	comp.createCaseHandler();
+	
+}
+function clickDeleteImage(){
+	const comp = document.querySelector("c-external-case-creation");
+	comp.clearFile();
+}
+  $Lightning.use(
+	'c:ExternalCaseApp',
+	function () {
+	  
+	  $Lightning.createComponent(
+		'c:externalCaseCreation', 
+		{"accountId":"0017Z00002GVS8e"}, 
+		'lightningout', 
+		function (cmp) {
+		  console.log('LWC Componenet added in external page');
+		}
+	  );
+	},
+	'https://swatch--dev1.sandbox.my.salesforce-sites.com' // Site endpoint
+  );
+</script>
+<button onClick="clickSubmit()">submit</button> 
+<button onClick="clickDeleteImage()">Clear</button> 
