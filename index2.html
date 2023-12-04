@@ -45,13 +45,15 @@ let payload =
 	'https://swatch--dev1.sandbox.my.salesforce-sites.com' // Site endpoint
   );
   
-  $Lightning.use(
+</script>
+<script>
+	$Lightning.use(
 	'c:ExternalCaseApp',
 	function () {
 	  $Lightning.createComponent(
 		'c:caseStatusContainer', 
 		{"caseId":"5009V000008ROBJQA4"}, 
-		'lightningout', 
+		'caseStatusContainer', 
 		function (cmp) {
 		  console.log('LWC Componenet added in external page');
 		}
