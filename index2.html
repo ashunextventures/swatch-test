@@ -2,6 +2,7 @@
 
 <script src="https://swatch--dev1.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 <script>
+const isCaseStatus = true;
 document.addEventListener("getFileUploadResponse", function(event){
 	console.log('vf event data window listener => ', event.detail);
 });
@@ -22,12 +23,18 @@ function clickDeleteImage(){
 	const comp = document.querySelector("c-external-case-creation");
 	comp.clearFile();
 }
+function getStatus(){
+	const comp = document.querySelector("c-external-case-creation");
+	comp.getStatus("0017Z00002GVS8e");
+}
+
+let payload = 
   $Lightning.use(
 	'c:ExternalCaseApp',
 	function () {
 	  $Lightning.createComponent(
 		'c:externalCaseCreation', 
-		{"caseId":"0017Z00002GVS8e"}, 
+		{"accountId":"0017Z00002G3nj0QAB"}, 
 		'lightningout', 
 		function (cmp) {
 		  console.log('LWC Componenet added in external page');
@@ -39,3 +46,4 @@ function clickDeleteImage(){
 </script>
 <button onClick="clickSubmit()">submit</button> 
 <button onClick="clickDeleteImage()">Clear</button> 
+<button onClick="getStatus()">Get Case Status</button> 
