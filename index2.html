@@ -1,4 +1,5 @@
 <div id="lightningout" style="border-bottom: 1px solid #ccc;padding-bottom: 45px;top: 31%;"></div>
+<div id="caseStatusContainer"></div>
 
 <script src="https://swatch--dev1.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 <script>
@@ -6,7 +7,7 @@ const isCaseStatus = true;
 document.addEventListener("getFileUploadResponse", function(event){
 	console.log('vf event data window listener => ', event.detail);
 });
-document.addEventListener("getCaseStatusEvent", function(event){
+document.addEventListener("getCaseStatusResult", function(event){
 	console.log('Case Status Listner => ', event.detail);
 });
 
@@ -43,7 +44,21 @@ let payload =
 	},
 	'https://swatch--dev1.sandbox.my.salesforce-sites.com' // Site endpoint
   );
+  
+  $Lightning.use(
+	'c:ExternalCaseApp',
+	function () {
+	  $Lightning.createComponent(
+		'c:caseStatusContainer', 
+		{"caseId":"5009V000008ROBJQA4"}, 
+		'lightningout', 
+		function (cmp) {
+		  console.log('LWC Componenet added in external page');
+		}
+	  );
+	},
+	'https://swatch--dev1.sandbox.my.salesforce-sites.com' // Site endpoint
+  );
 </script>
 <button onClick="clickSubmit()">submit</button> 
 <button onClick="clickDeleteImage()">Clear</button> 
-<button onClick="getStatus()">Get Case Status</button> 
