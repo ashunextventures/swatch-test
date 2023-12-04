@@ -5,6 +5,10 @@
 document.addEventListener("getFileUploadResponse", function(event){
 	console.log('vf event data window listener => ', event.detail);
 });
+document.addEventListener("getCaseStatusEvent", function(event){
+	console.log('Case Status Listner => ', event.detail);
+});
+
 document.addEventListener("fileSelectorEvent", function(event){
 	console.log('vf event data window listener => ', event.detail);
 });
