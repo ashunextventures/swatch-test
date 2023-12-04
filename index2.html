@@ -5,6 +5,10 @@
 document.addEventListener("getFileUploadResponse", function(event){
 	console.log('vf event data window listener => ', event.detail);
 });
+document.addEventListener("fileSelectorEvent", function(event){
+	console.log('vf event data window listener => ', event.detail);
+});
+
 function clickSubmit(){
 	const comp = document.querySelector("c-external-case-creation");
 	comp.createCaseHandler();
@@ -20,7 +24,7 @@ function clickDeleteImage(){
 	  
 	  $Lightning.createComponent(
 		'c:externalCaseCreation', 
-		{"accountId":"0017Z00002GVS8e"}, 
+		{"caseId":"0017Z00002GVS8e"}, 
 		'lightningout', 
 		function (cmp) {
 		  console.log('LWC Componenet added in external page');
